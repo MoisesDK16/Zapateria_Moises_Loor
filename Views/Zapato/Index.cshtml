@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Zapateria.Models.Zapato>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model ?? new List<Zapato>())
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Marca)</td>
+                <td>@Html.DisplayFor(modelItem => item.Modelo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Color)</td>
+                <td>@(item.Tipo != null ? item.Tipo.Nombre : "empty")</td>
+                <td>
+                    <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
