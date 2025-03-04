@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label asp-for="TipoId" class="control-label"></label>
                 <select asp-for="TipoId" class="form-control" asp-items="@(ViewData["TipoId"] as SelectList)">
-                    <option value="0">Seleccione un tipo</option> <!-- Opción vacía corregida -->
+                    <option value="0">Seleccione un tipo</option> 
                 </select>
                 <span asp-validation-for="TipoId" class="text-danger"></span>
             </div>

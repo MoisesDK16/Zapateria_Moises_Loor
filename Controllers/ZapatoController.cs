@@ -23,7 +23,7 @@ namespace Zapateria.Controllers
         public IActionResult Index()
         {
             var zapatos = _context.Zapatos
-                .Include(z => z.Tipo) // Esto asegura que Tipo no sea NULL
+                .Include(z => z.Tipo)
                 .ToList();
 
             return View(zapatos);
